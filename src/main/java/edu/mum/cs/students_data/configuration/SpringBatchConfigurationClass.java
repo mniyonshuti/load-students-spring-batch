@@ -55,7 +55,7 @@ public class SpringBatchConfigurationClass {
     public LineMapper<Student> linemapper() {
 
         DelimitedLineTokenizer delimitedLineTokenizer = new DelimitedLineTokenizer();
-        delimitedLineTokenizer.setNames(new String[]{"id", "firstName", "lastName", "gpa", "age"});
+        delimitedLineTokenizer.setNames(new String[]{"id", "firstName", "lastName", "gpa", "birthday"});
         delimitedLineTokenizer.setStrict(false);
         delimitedLineTokenizer.setDelimiter(",");
 

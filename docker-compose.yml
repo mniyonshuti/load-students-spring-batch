@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysqldatabase:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=test1234
+      - MYSQL_DATABASE=students_db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=test1234
+    networks:
+      - fullstack
+    container_name: mysql_database_container
+  students-batch-container:
+    image: students_batch_file
+    depends_on:
+      - mysqldatabase
+    ports:
+      - 8081:8081
+    networks:
+      - fullstack
+    container_name: students_batch_application_container
+networks:
+  fullstack:

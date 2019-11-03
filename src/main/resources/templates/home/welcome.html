@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Welcome </title>
+</head>
+<body>
+<p>
+    <h1>Click button below to execute batch job</h1>
+</p>
+<form th:action="@{/startjob}" method="post">
+    <div style="font-size: 2em"><input type="submit" value="Start Job"/></div>
+</form>
+</body>
+</html>

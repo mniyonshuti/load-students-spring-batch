@@ -30,6 +30,11 @@ public class StudentController {
 
 
     @GetMapping(value = {"/", "/home", "/login"})
+    public String welcome(){
+        return "home/welcome";
+    }
+
+    @PostMapping(value = {"/startjob"})
     public String load() throws JobParametersInvalidException,
             JobExecutionAlreadyRunningException, JobRestartException,
             JobInstanceAlreadyCompleteException {
@@ -39,7 +44,6 @@ public class StudentController {
         maps.put("Execution time", new JobParameter(dtf.format(now)));
         JobParameters params = new JobParameters(maps);
         JobExecution jobExecution = launcher.run(job, params);
-
         return "job/startjob";
     }
 

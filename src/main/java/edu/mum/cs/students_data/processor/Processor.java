@@ -11,8 +11,9 @@ import java.time.LocalDate;
 public class Processor implements ItemProcessor<Student, Student> {
     @Override
     public Student process(Student student) throws Exception {
-        Integer age = student.getAge();
-        student.setBirthday(LocalDate.of(LocalDate.now().getYear() - age, 01, 10));
-        return student;
+        Integer age = Integer.parseInt(student.getBirthday());
+       LocalDate birthday = LocalDate.of(LocalDate.now().getYear() - age, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
+       student.setBirthday(birthday.toString());
+       return student;
     }
 }
